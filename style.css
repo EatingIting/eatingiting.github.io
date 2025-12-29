@@ -793,10 +793,27 @@ footer{
   display: none;
 }
 
+.hamburger {
+  display: none;
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  border: 1px solid var(--line);
+  background: color-mix(in oklab, var(--card) 70%, transparent);
+  font-size: 20px;
+  cursor: pointer;
+}
+
 @media (max-width: 900px) {
   /* 데스크톱 nav 숨김 */
   .nav {
     display: none;
+  }
+  
+  .hamburger {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
   }
 
   /* 모바일 nav 기본 상태 */

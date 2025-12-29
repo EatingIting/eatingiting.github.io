@@ -277,28 +277,24 @@ const observer = new IntersectionObserver(
 sections.forEach((section) => observer.observe(section));
 
 document.addEventListener("DOMContentLoaded", () => {
-  const hamburger = document.getElementById("hamburger");
-  const nav = document.getElementById("nav");
+  const hamburger = document.getElementById("menuBtn");
+  const nav = document.getElementById("mobileNav");
 
   if (!hamburger || !nav) return;
 
-  // 햄버거 클릭 → nav 토글
   hamburger.addEventListener("click", (e) => {
     e.stopPropagation();
     nav.classList.toggle("is-open");
   });
 
-  // nav 내부 클릭 시 닫히지 않음
   nav.addEventListener("click", (e) => {
     e.stopPropagation();
   });
 
-  // 바깥 클릭 시 닫기
   document.addEventListener("click", () => {
     nav.classList.remove("is-open");
   });
 
-  // 메뉴 클릭 시 자동 닫힘
   nav.querySelectorAll("a").forEach((link) => {
     link.addEventListener("click", () => {
       nav.classList.remove("is-open");

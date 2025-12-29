@@ -789,29 +789,20 @@ footer{
 
 .small{ font-size:13px; }
 
-.hamburger {
+.mobile-nav {
   display: none;
-  width: 40px;
-  height: 40px;
-  border-radius: 12px;
-  border: 1px solid var(--line);
-  background: color-mix(in oklab, var(--card) 70%, transparent);
-  font-size: 20px;
-  cursor: pointer;
 }
 
 @media (max-width: 900px) {
-  /* 햄버거 버튼 표시 */
-  .hamburger {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
+  /* 데스크톱 nav 숨김 */
+  .nav {
+    display: none;
   }
 
-  /* 기본 nav 숨김 */
-  .nav {
+  /* 모바일 nav 기본 상태 */
+  .mobile-nav {
     position: fixed;
-    top: 64px; /* topbar 높이 */
+    top: 64px;
     left: 0;
     right: 0;
 
@@ -819,21 +810,22 @@ footer{
     backdrop-filter: blur(12px);
     border-bottom: 1px solid var(--line);
 
+    display: flex;
     flex-direction: column;
     gap: 4px;
     padding: 12px 16px;
 
     transform: translateY(-120%);
     transition: transform 260ms ease;
-    z-index: 40;
+    z-index: 100;
   }
 
   /* 열렸을 때 */
-  .nav.is-open {
+  .mobile-nav.is-open {
     transform: translateY(0);
   }
 
-  .nav a {
+  .mobile-nav a {
     padding: 12px;
     border-radius: 12px;
   }

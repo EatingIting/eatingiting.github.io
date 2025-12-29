@@ -401,6 +401,15 @@ section.reveal > .container{
   line-height:1.65;
   max-width: 70ch;
   font-size:14px;
+  white-space: nowrap;
+}
+
+@media (max-width: 768px) {
+  .desc {
+    white-space: normal;
+    max-width: 100%;
+    word-break: keep-all;
+  }
 }
 
 /* =========================
@@ -546,6 +555,28 @@ section.reveal > .container{
 /* =========================
    PROJECTS
 ========================= */
+@media (max-width: 768px) {
+  .section-head {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .filters {
+    width: 100%;
+    justify-content: flex-start;
+    overflow-x: auto;
+  }
+
+  .filters::-webkit-scrollbar {
+    display: none;
+  }
+
+  .pill {
+    flex: 0 0 auto;
+  }
+}
+
 .filters{
   display:flex;
   gap:8px;
@@ -809,7 +840,7 @@ footer{
   .nav {
     display: none;
   }
-  
+
   .hamburger {
     display: inline-flex;
     align-items: center;

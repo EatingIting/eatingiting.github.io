@@ -8,16 +8,20 @@
   // Theme
   const themeBtn = $("#themeBtn");
   const saved = localStorage.getItem("theme");
-  if (saved) document.body.setAttribute("data-theme", saved);
+  if (saved) {
+    document.body.setAttribute("data-theme", saved);
+  } else {
+    document.body.setAttribute("data-theme", "light");
+    localStorage.setItem("theme", "light");
+  }
 
   themeBtn.addEventListener("click", () => {
-    const cur = document.body.getAttribute("data-theme") || "dark";
+    const cur = document.body.getAttribute("data-theme");
     const next = (cur === "dark") ? "light" : "dark";
     document.body.setAttribute("data-theme", next);
     localStorage.setItem("theme", next);
   });
 
-  // Rotating role chip (완전히 새 디자인이지만 기존 메시지 유지)
   const roles = ["풀스택 개발자", "백엔드 개발자"];
   let r = 0;
   setInterval(() => {

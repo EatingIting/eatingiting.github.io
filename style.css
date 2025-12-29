@@ -401,11 +401,15 @@ section.reveal > .container{
   line-height:1.65;
   max-width: 70ch;
   font-size:14px;
+}
+
+.desc span {
+  display: block;
   white-space: nowrap;
 }
 
 @media (max-width: 768px) {
-  .desc {
+  .desc span {
     white-space: normal;
     max-width: 100%;
     word-break: keep-all;

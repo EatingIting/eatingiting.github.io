@@ -300,4 +300,284 @@ document.addEventListener("DOMContentLoaded", () => {
       nav.classList.remove("is-open");
     });
   });
+
+  const projectScreenshots = {
+    p1: [
+      {
+        src :'p1/login.png',
+        desc : '로그인 페이지'
+      },
+      {
+        src : 'p1/register.png',
+        desc : '회원가입 페이지'
+      },
+      {
+        src : 'p1/main.png',
+        desc : '로그인 후 메인페이지'},
+      {
+        src : 'p1/marker_detail.png',
+        desc : '마커 클릭 후 디테일 페이지'},
+      {
+        src : 'p1/scroll.png', 
+        desc : '디테일 스크롤 후'
+      }
+    ],
+    p2: [
+      {
+        src : 'p2/main.png',
+        desc : '쇼핑몰 메인페이지'},
+      {  
+        src : 'p2/login_modal.png',
+        desc : '로그인 모달창'},
+      {
+        src : 'p2/register.png',
+        desc : '회원가입창'},
+      {
+        src : 'p2/email_verify.png',
+        desc : '이메일 인증 버튼을 누르면 3분의 유효시간'},
+      {
+        src : 'p2/email.png',
+        desc : 'SMTP서버 이용하여, 실제 이메일 전송'},
+      {
+        src : 'p2/email_ok.png',
+        desc : `인증번호를 입력 후 '확인' 버튼을 누름`},
+      {
+        src : 'p2/login_ok.png',
+        desc : '로그인 후 로그아웃으로 바뀐 페이지'}
+    ],
+    p3: [
+      {
+        src: 'p3/login1.png',
+        desc: 'Java Bean 카페 서비스의 기본 로그인 화면으로, 이메일과 비밀번호를 통한 일반 로그인을 제공합니다.'
+      },
+      {
+        src: 'p3/login2.png',
+        desc: '카카오 계정을 이용한 소셜 로그인 화면으로, 외부 인증 API 연동을 통해 간편 로그인을 지원합니다.'
+      },
+      {
+        src: 'p3/general_login.png',
+        desc: '일반적인 로그인을 할 수 있는 로그인 화면입니다.'
+      },
+      {
+        src: 'p3/register1.png',
+        desc: '카카오, 네이버, 구글 등 소셜 계정을 활용한 회원가입 화면으로, 간편한 가입 절차를 제공합니다.'
+      },
+      {
+        src: 'p3/general_register.png',
+        desc: '일반 회원가입 화면으로, 이메일·비밀번호·닉네임 입력을 통해 신규 회원을 등록합니다.'
+      },
+      {
+        src: 'p3/main.png',
+        desc: '로그인 성공 후 메인 화면으로, 이전 주문 내역과 스탬프·쿠폰 정보를 확인할 수 있습니다.'
+      },
+      {
+        src: 'p3/select_store.png',
+        desc: '주문 전 지점을 선택하는 화면으로, 사용자가 원하는 매장을 선택해 주문할 수 있습니다.'
+      },
+      {
+        src: 'p3/menu.png',
+        desc: '카테고리별 메뉴 목록 화면으로, 커피·음료·디저트 등의 메뉴를 한눈에 확인할 수 있습니다.'
+      },
+      {
+        src: 'p3/search.png',
+        desc: '메뉴 검색 화면으로, 키워드를 입력해 원하는 메뉴를 빠르게 찾을 수 있습니다.'
+      },
+      {
+        src: 'p3/menu_detail.png',
+        desc: '메뉴 상세 화면으로, ICE/HOT 선택, 옵션 설정, 수량 조절 후 장바구니 또는 바로 주문이 가능합니다.'
+      },
+      {
+        src: 'p3/cart1.png',
+        desc: '장바구니 화면으로, 선택한 메뉴와 수량을 확인하고 포장/매장 여부를 선택할 수 있습니다.'
+      },
+      {
+        src: 'p3/cart2.png',
+        desc: '요청사항 입력, 결제 수단 선택 및 최종 결제 금액을 확인합니다.'
+      },
+      {
+        src: 'p3/admin_order.png',
+        desc: '관리자 주문 관리 화면으로, 실시간으로 들어오는 주문을 확인하고 주문 상태를 관리합니다.'
+      },
+      {
+        src: 'p3/admin_menu_management.png',
+        desc: '관리자 메뉴 관리 화면으로, 메뉴 추가·수정·삭제 및 카테고리와 가격을 관리할 수 있습니다.'
+      },
+      {
+        src: 'p3/admin_revenue.png',
+        desc: '관리자 매출 관리 화면으로, 날짜별 매출 조회와 주문 금액 통계를 확인할 수 있습니다.'
+      }
+    ],
+    p4: [
+      {
+        src: 'p4/start.png',
+        desc: '게임 시작 화면으로, 닉네임 입력 후 방 생성 또는 방 참여를 선택할 수 있습니다.'
+      },
+      {
+        src: 'p4/create_room.png',
+        desc: '방 생성 화면에서 로비 이름, 게임 모드, 비밀번호 설정 등 방 옵션을 구성할 수 있습니다.'
+      },
+      {
+        src: 'p4/room_list.png',
+        desc: '현재 생성된 방 목록을 확인하고, 원하는 방에 입장할 수 있는 대기실 화면입니다.'
+      },
+      {
+        src: 'p4/waiting_room.png',
+        desc: '게임 시작 전 대기 화면으로, 참여자 목록과 채팅을 통해 대기 상태를 확인할 수 있습니다.'
+      },
+      {
+        src: 'p4/chat_bubble.png',
+        desc: '대기 중 채팅을 입력하면 사용자 캐릭터 옆에 말풍선 형태로 실시간 표시됩니다.'
+      },
+      {
+        src: 'p4/drawing_turn.png',
+        desc: '출제자가 제시어에 맞는 그림을 실시간으로 그리는 게임 진행 화면입니다.'
+      },
+      {
+        src: 'p4/guessing_turn.png',
+        desc: '참여자가 그림을 보고 채팅으로 정답을 입력하는 턴 화면입니다.'
+      },
+      {
+        src: 'p4/time_progress.png',
+        desc: '라운드 제한 시간에 따라 상단 타이머 프로그레스바가 실시간으로 감소합니다.'
+      },
+      {
+        src: 'p4/game_end.png',
+        desc: '모든 플레이어가 나가거나 게임이 종료되었을 때 표시되는 종료 안내 화면입니다.'
+      },
+      {
+        src: 'p4/word_chain_start.png',
+        desc: '끝말잇기 모드 시작 화면으로, 턴과 제한 시간이 명확히 표시됩니다.'
+      },
+      {
+        src: 'p4/word_chain_play.png',
+        desc: '끝말잇기 진행 중 화면으로, 입력 단어와 턴 교체 로그가 실시간 반영됩니다.'
+      },
+      {
+        src: 'p4/word_chain_result.png',
+        desc: '끝말잇기 라운드 결과 화면으로, 성공·실패 여부와 점수가 정리되어 표시됩니다.'
+      },
+      {
+        src: 'p4/vote_progress.png',
+        desc: '라운드 종료 후 그림 투표가 진행되는 화면으로, 남은 투표 시간이 표시됩니다.'
+      },
+      {
+        src: 'p4/vote_result.png',
+        desc: '투표 결과에 따라 점수와 순위가 집계되어 시각적으로 표시됩니다.'
+      },
+      {
+        src: 'p4/hall_of_fame.png',
+        desc: '월별 명예의 전당 화면으로, 인기 그림과 득표 수를 확인할 수 있습니다.'
+      }
+    ]
+  };
+
+  const modal = document.getElementById('modal');
+  const modalBody = document.getElementById('modalBody');
+  const modalTitle = document.getElementById('modalTitle');
+  const modalClose = document.getElementById('modalClose');
+
+  document.querySelectorAll('[data-shot]').forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const key = btn.dataset.shot;
+      openScreenshotModal(key);
+    });
+  });
+
+  function openScreenshotModal(key) {
+    const images = projectScreenshots[key];
+    if (!images) return;
+
+    modalTitle.textContent = '프로젝트 스크린샷';
+
+    modalBody.innerHTML = createCarousel(images);
+
+    modal.setAttribute('data-shot', key);
+
+    modal.classList.add('open');
+    modal.setAttribute('aria-hidden', 'false');
+
+    initCarousel(images);
+  }
+
+  modalClose.addEventListener('click', closeModal);
+
+  function closeModal() {
+    modal.classList.remove('open');
+    modal.setAttribute('aria-hidden', 'true');
+
+    // ✅ cleanup
+    modal.removeAttribute('data-shot');
+  }
+
+  function createCarousel(images) {
+    return `
+      <div class="carousel">
+        <button class="carousel-btn left" aria-label="이전">‹</button>
+
+        <!-- viewport : 보이는 영역 -->
+        <div class="carousel-viewport">
+          <div class="carousel-track">
+            ${images.map(img => {
+              const isWeb = img.src.includes('admin');
+              return `
+                <div class="carousel-slide ${isWeb ? 'web' : 'mobile'}">
+                  <img src="${img.src}" alt="스크린샷">
+                </div>
+              `;
+            }).join('')}
+          </div>
+        </div>
+
+        <button class="carousel-btn right" aria-label="다음">›</button>
+
+        <div class="carousel-dots">
+          ${images.map((_, i) => `<span data-dot="${i}"></span>`).join('')}
+        </div>
+
+        <div class="carousel-caption" id="carouselCaption"></div>
+      </div>
+    `;
+  }
+
+  function initCarousel(images) {
+    const track = document.querySelector('.carousel-track');
+    const slides = document.querySelectorAll('.carousel-slide');
+    const dots = document.querySelectorAll('.carousel-dots span');
+    const btnLeft = document.querySelector('.carousel-btn.left');
+    const btnRight = document.querySelector('.carousel-btn.right');
+    const caption = document.getElementById('carouselCaption');
+
+    let index = 0;
+
+    function update() {
+      track.style.transform = `translateX(-${index * 100}%)`;
+      dots.forEach(d => d.classList.remove('active'));
+      dots[index].classList.add('active');
+
+      if (caption && images[index]?.desc) {
+        caption.textContent = images[index].desc;
+      }
+    }
+
+    btnLeft.onclick = () => {
+      index = (index - 1 + slides.length) % slides.length;
+      update();
+    };
+
+    btnRight.onclick = () => {
+      index = (index + 1) % slides.length;
+      update();
+    };
+
+    dots.forEach(dot => {
+      dot.onclick = () => {
+        index = Number(dot.dataset.dot);
+        update();
+      };
+    });
+
+    update();
+  }
+
 });

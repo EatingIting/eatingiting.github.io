@@ -632,6 +632,13 @@ section.reveal > .container{
   overflow:hidden;
 }
 
+.project-bottom {
+  margin-top: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
 .project-top{
   display:flex;
   justify-content:space-between;
@@ -644,6 +651,29 @@ section.reveal > .container{
   font-size:16px;
   font-weight:900;
   letter-spacing:-0.4px;
+}
+
+.project .links .link {
+  background: color-mix(in oklab, var(--brand) 10%, var(--bg2)) !important;
+  border: 1px solid color-mix(in oklab, var(--brand) 28%, var(--line)) !important;
+  color: var(--text) !important;
+
+  font-weight: 700;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.20);
+  transition:
+    transform 160ms ease,
+    box-shadow 160ms ease,
+    border-color 160ms ease,
+    color 160ms ease,
+    background 160ms ease;
+}
+
+.project .links .link:hover {
+  background: color-mix(in oklab, var(--brand) 16%, var(--bg2));
+  border-color: var(--brand);
+  color: var(--brand);
+  transform: translateY(-1px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.28);
 }
 
 .tag{

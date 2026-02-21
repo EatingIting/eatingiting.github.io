@@ -1231,10 +1231,24 @@ footer{
   max-width: 1180px;
 }
 
+[data-shot="p5"] .carousel-slide {
+  overflow: hidden;
+  border-radius: 12px;
+}
+
 [data-shot="p5"] .carousel-slide img {
   width: 100%;
   max-width: 1160px;
   max-height: 76vh;
   height: auto;
   object-fit: contain;
+  transform: translateY(-73px);
+  padding-bottom: 73px;
+}
+
+@media (max-width: 900px) {
+  [data-shot="p5"] .carousel-slide img {
+    transform: translateY(-34px);
+    padding-bottom: 34px;
+  }
 }

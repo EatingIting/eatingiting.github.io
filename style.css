@@ -1097,15 +1097,25 @@ footer{
   justify-content: center;
   gap: 10px;
   margin-top: 14px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
 }
 
 .carousel-dots span {
+  display: block;
   width: 10px;
   height: 10px;
+  flex: 0 0 10px;
   border-radius: 50%;
   background: #666;
   cursor: pointer;
   transition: background-color 0.2s ease;
+}
+
+.carousel-dots::-webkit-scrollbar {
+  display: none;
 }
 
 .carousel-caption {
@@ -1121,7 +1131,22 @@ footer{
 }
 
 .carousel-dots span.active {
-  background: #fff;
+  background: #111827;
+  border: 1px solid #ffffff;
+  box-shadow: 0 0 0 1px rgba(0,0,0,0.18);
+}
+
+@media (max-width: 900px) {
+  .carousel-dots {
+    gap: 7px;
+    padding: 0 4px;
+  }
+
+  .carousel-dots span {
+    width: 8px;
+    height: 8px;
+    flex: 0 0 8px;
+  }
 }
 
 .carousel-slide.mobile img {
@@ -1196,6 +1221,11 @@ footer{
 }
 
 /* p4: 대부분 가로 화면이라 이미지 폭을 적극 사용 */
+[data-shot="p4"] .carousel-slide {
+  overflow: hidden;
+  border-radius: 12px;
+}
+
 [data-shot="p4"] .carousel-slide img {
   width: 100%;
   max-width: 1080px;
@@ -1247,31 +1277,30 @@ footer{
 }
 
 @media (max-width: 900px) {
-  [data-shot="p5"] .carousel-slide img {
-    transform: translateY(-0px);
-    padding-bottom: 0px;
-  }
-}
-
-@media (max-width: 900px) {
-  [data-shot="p4"] .carousel-viewport,
-  [data-shot="p5"] .carousel-viewport {
-    height: 42vh;
-    min-height: 280px;
-  }
-
-  [data-shot="p4"] .carousel-slide img,
-  [data-shot="p5"] .carousel-slide img {
-    width: 100%;
-    height: 100%;
-    max-width: none;
-    max-height: none;
-    object-fit: cover;
-    object-position: center top;
+  /* p5 모바일 표시를 p4와 같은 기준으로 통일 */
+  [data-shot="p5"] .modal-box {
+    width: min(100%, 100vw);
+    min-height: 84vh;
   }
 
   [data-shot="p5"] .carousel-slide img {
+    max-height: 70vh;
     transform: none;
     padding-bottom: 0;
+    clip-path: inset(22px 0 0 0);
+  }
+
+  /* p5는 도트 개수가 많아 양끝이 잘리지 않게 좌측 정렬 + 스크롤 */
+  .modal[data-shot="p5"] .carousel-dots {
+    justify-content: center;
+    padding: 0;
+    gap: 4px;
+    overflow-x: hidden;
+  }
+
+  .modal[data-shot="p5"] .carousel-dots span {
+    width: 8px;
+    height: 8px;
+    flex: 0 0 8px;
   }
 }

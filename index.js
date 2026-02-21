@@ -673,6 +673,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   function initCarousel(images) {
     const track = document.querySelector('.carousel-track');
+    const viewport = document.querySelector('.carousel-viewport');
     const slides = document.querySelectorAll('.carousel-slide');
     const dots = document.querySelectorAll('.carousel-dots span');
     const btnLeft = document.querySelector('.carousel-btn.left');
@@ -707,6 +708,42 @@ document.addEventListener("DOMContentLoaded", () => {
         update();
       };
     });
+
+    // Mobile swipe: left -> next, right -> prev
+    let touchStartX = 0;
+    let touchStartY = 0;
+    let touchDeltaX = 0;
+    let touchDeltaY = 0;
+
+    if (viewport) {
+      viewport.addEventListener('touchstart', (e) => {
+        const t = e.touches[0];
+        touchStartX = t.clientX;
+        touchStartY = t.clientY;
+        touchDeltaX = 0;
+        touchDeltaY = 0;
+      }, { passive: true });
+
+      viewport.addEventListener('touchmove', (e) => {
+        const t = e.touches[0];
+        touchDeltaX = t.clientX - touchStartX;
+        touchDeltaY = t.clientY - touchStartY;
+      }, { passive: true });
+
+      viewport.addEventListener('touchend', () => {
+        const threshold = 45;
+        // Ignore mostly-vertical gestures
+        if (Math.abs(touchDeltaX) < Math.abs(touchDeltaY)) return;
+
+        if (touchDeltaX <= -threshold) {
+          index = (index + 1) % slides.length;
+          update();
+        } else if (touchDeltaX >= threshold) {
+          index = (index - 1 + slides.length) % slides.length;
+          update();
+        }
+      }, { passive: true });
+    }
 
     update();
   }

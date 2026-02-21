@@ -1248,7 +1248,30 @@ footer{
 
 @media (max-width: 900px) {
   [data-shot="p5"] .carousel-slide img {
-    transform: translateY(-10px);
-    padding-bottom: 10px;
+    transform: translateY(-0px);
+    padding-bottom: 0px;
+  }
+}
+
+@media (max-width: 900px) {
+  [data-shot="p4"] .carousel-viewport,
+  [data-shot="p5"] .carousel-viewport {
+    height: 42vh;
+    min-height: 280px;
+  }
+
+  [data-shot="p4"] .carousel-slide img,
+  [data-shot="p5"] .carousel-slide img {
+    width: 100%;
+    height: 100%;
+    max-width: none;
+    max-height: none;
+    object-fit: cover;
+    object-position: center top;
+  }
+
+  [data-shot="p5"] .carousel-slide img {
+    transform: none;
+    padding-bottom: 0;
   }
 }

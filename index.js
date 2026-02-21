@@ -497,7 +497,7 @@ document.addEventListener("DOMContentLoaded", () => {
     p5: [
       {
         src: 'p5/1.png',
-        desc: '비로그인 사용자를 위한 랜딩 메인 화면으로, 서비스 핵심 기능과 진입 동선을 안내합니다.'
+        desc: '비로그인 상태에서 보이는 ONSIL 메인 페이지입니다.'
       },
       {
         src: 'p5/2.png',

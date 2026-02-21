@@ -1018,27 +1018,75 @@ footer{
   transform: translateY(-50%);
   z-index: 20;
 
-  width: 40px;
-  height: 40px;
+  width: 46px;
+  height: 46px;
   border-radius: 50%;
-  background: rgba(0, 0, 0, 0.6);
-  color: #fff;
-  font-size: 24px;
+  border: 1px solid color-mix(in oklab, var(--brand) 35%, var(--line));
+  background: color-mix(in oklab, var(--card) 78%, transparent);
+  backdrop-filter: blur(8px);
+  color: transparent;
+  font-size: 0;
+  line-height: 0;
+  box-shadow: 0 10px 26px rgba(0,0,0,0.28);
 
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  display: grid;
+  place-items: center;
 
   cursor: pointer;
   user-select: none;
+  transition: transform 180ms ease, background 180ms ease, border-color 180ms ease, box-shadow 180ms ease;
+}
+
+.carousel-btn::before {
+  color: var(--text);
+  font-size: 30px;
+  line-height: 1;
 }
 
 .carousel-btn.left {
-  left: -10px; /* 바깥으로 */
+  left: -14px; /* 바깥으로 */
+}
+
+.carousel-btn.left::before {
+  content: "‹";
 }
 
 .carousel-btn.right {
-  right: -10px;
+  right: -14px;
+}
+
+.carousel-btn.right::before {
+  content: "›";
+}
+
+.carousel-btn:hover {
+  transform: translateY(-50%) scale(1.06);
+  border-color: color-mix(in oklab, var(--brand) 65%, var(--line));
+  background: color-mix(in oklab, var(--brand) 18%, var(--card));
+  box-shadow: 0 12px 30px rgba(0,0,0,0.34);
+}
+
+.carousel-btn:active {
+  transform: translateY(-50%) scale(0.97);
+}
+
+@media (max-width: 900px) {
+  .carousel-btn {
+    width: 40px;
+    height: 40px;
+  }
+
+  .carousel-btn::before {
+    font-size: 26px;
+  }
+
+  .carousel-btn.left {
+    left: -6px;
+  }
+
+  .carousel-btn.right {
+    right: -6px;
+  }
 }
 
 /* =========================

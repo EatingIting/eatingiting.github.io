@@ -1111,3 +1111,21 @@ footer{
 [data-shot="p4"] .carousel {
   max-width: 1200px;
 }
+
+/* ONSIL 스크린샷은 웹 화면 비율이 많아서 모달/캐러셀을 크게 사용 */
+[data-shot="p5"] .modal-box {
+  width: min(1280px, 98vw);
+  min-height: 90vh;
+}
+
+[data-shot="p5"] .carousel {
+  max-width: 1180px;
+}
+
+[data-shot="p5"] .carousel-slide img {
+  width: 100%;
+  max-width: 1160px;
+  max-height: 76vh;
+  height: auto;
+  object-fit: contain;
+}

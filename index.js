@@ -61,6 +61,34 @@
   const counters = $$(".num[data-count]");
   let counterDone = false;
 
+  // "코딩한 일수"를 2018-01-01 기준으로 매일 자동 계산
+  function calcCodingDaysSince(startDateISO){
+    const start = new Date(startDateISO + "T00:00:00");
+    const today = new Date();
+    today.setHours(0, 0, 0, 0);
+    const diff = today.getTime() - start.getTime();
+    return Math.max(1, Math.floor(diff / 86400000) + 1);
+  }
+
+  const codingDayStat = $$(".stats .stat").find(stat => {
+    const label = stat.querySelector(".label");
+    return label && label.textContent.includes("코딩한 일수");
+  });
+  const codingDayCounter = codingDayStat ? codingDayStat.querySelector(".num[data-count]") : null;
+  const codingDays = calcCodingDaysSince("2018-03-05");
+  if (codingDayCounter) {
+    codingDayCounter.dataset.count = String(codingDays);
+  }
+
+  const coffeeStat = $$(".stats .stat").find(stat => {
+    const label = stat.querySelector(".label");
+    return label && label.textContent.includes("커피");
+  });
+  const coffeeCounter = coffeeStat ? coffeeStat.querySelector(".num[data-count]") : null;
+  if (coffeeCounter) {
+    coffeeCounter.dataset.count = String(codingDays * 2);
+  }
+
   function animateCount(el, target){
     const start = 0;
     const dur = 1100;

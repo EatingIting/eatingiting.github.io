@@ -190,6 +190,8 @@
 - 프론트엔드(React)와 백엔드(Spring Boot)를 분리 구성하고 API/WebSocket 통신을 일관되게 설계했습니다.
 - Docker Compose로 MySQL/Backend/Frontend 컨테이너를 구성해 배포 환경을 표준화했습니다.
 - AWS EC2에 운영 배포하여 도메인(drawit.online) 기반으로 실제 서비스 운영을 진행했습니다.
+- 테스트 방법: https://drawit.online 에서 테스트할 수 있습니다.
+- 한 컴퓨터에서 멀티 유저 테스트가 필요하면 시크릿 탭(또는 시크릿 창)을 열어 동시에 테스트할 수 있습니다.
 `
     },
     p5: {
@@ -213,6 +215,7 @@
 - Frontend/Backend/SFU를 분리한 멀티 서비스 구조로 운영 환경을 설계했습니다.
 - Docker 기반으로 서비스별 이미지를 구성하고 docker-compose로 통합 배포했습니다.
 - AWS EC2에 운영 배포하여 도메인(onsil.study) 기반으로 실제 서비스 운영을 진행했습니다.
+- 테스트 방법: https://onsil.study 진입 후 이메일 test@test.com / 비밀번호 1234로 테스트할 수 있습니다.
 `
     }
   };

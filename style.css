@@ -427,6 +427,10 @@ section.reveal > .container{
 ========================= */
 .grid{ display:grid; gap:12px; }
 .grid-2{ grid-template-columns: repeat(2, 1fr); }
+#skills .grid-2{
+  grid-template-columns: 1fr;
+  align-items: start;
+}
 
 .card{
   border-radius: var(--radius2);
@@ -534,10 +538,14 @@ section.reveal > .container{
   margin-top:10px;
 }
 
-.skill b{ font-size:14px; }
+.skill b{
+  font-size:14px;
+  flex: 0 0 170px;
+}
 
 .bar{
-  width:55%;
+  flex: 1 1 auto;
+  width:auto;
   height:10px;
   border-radius:999px;
   background: color-mix(in oklab, var(--bg2) 70%, transparent);

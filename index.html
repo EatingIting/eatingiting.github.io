@@ -1,581 +1,207 @@
 <!DOCTYPE html>
-<html lang="ko-KR">
+<html lang="ko">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>김의재 | Backend Developer Portfolio</title>
-  <meta name="description" content="백엔드 개발자 김의재 - Docker, Spring Boot, 확장 가능한 구조와 안정적인 운영" />
-  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Backend & AI Agent Engineer Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+KR:wght@400;500;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
 </head>
-
-<body data-theme="dark">
-  <!-- Topbar -->
-  <header class="topbar">
-    <div class="container">
-      <div class="topbar-inner">
-        <a class="brand" href="/" aria-label="홈으로">
-          <span class="brand-badge">김</span>
-          <span>김의재</span>
-        </a>
-
-        <nav class="nav" aria-label="주요 섹션">
-          <a href="#home" class="active">Home</a>
-          <a href="#about">About</a>
-          <a href="#education">Education</a>
-          <a href="#skills">Skills</a>
-          <a href="#projects">Projects</a>
-          <!-- <a href="#side">Side</a> -->
-          <a href="#contact">Contact</a>
-        </nav>
-
-        <div class="actions">
-           <button class="btn hamburger" id="menuBtn">☰</button>
-          <button class="btn" id="themeBtn" type="button" aria-label="테마 전환">Theme</button>
-          <!-- <a class="btn btn-primary" href="https://kej-portfolio-files.s3.ap-northeast-2.amazonaws.com/%EC%9E%85%EC%82%AC%EC%A7%80%EC%9B%90%EC%84%9C_%EA%B9%80%EC%9D%98%EC%9E%AC.hwp" download="입사지원서_김의재.hwp">이력서</a> -->
-        </div>
-      </div>
-    </div>
+<body>
+  <header class="site-header">
+    <a href="#top" class="brand">AI Agent Portfolio</a>
+    <nav aria-label="주요 섹션">
+      <a href="#projects">Projects</a>
+      <a href="#architecture">Architecture</a>
+      <a href="#skills">Skills</a>
+      <a href="#troubleshooting">Ops</a>
+    </nav>
   </header>
 
-  <!-- Hero -->
-  <main id="home" class="hero">
-    <div class="container">
-      <div class="hero-grid">
-        <section class="panel hero-main" aria-label="소개">
-          <div class="kicker"><span class="dot"></span><span>Hey! I am</span></div>
-
-          <h1 class="hero-title">
-            김의재
-          </h1>
-
-          <p class="hero-sub">
-            "코드의 완성은 배포이며, 서비스의 완성은 안정적인 운영입니다." 커피와 노트북만 있다면 장소에 구애받지 않고 몰입하는 개발자 김의재입니다.
-            <br/>
-            단순히 요구사항을 구현하는 것을 넘어, 확장 가능한 구조(Scalability)와 유지보수의 용이성을 설계 단계부터 고민합니다.
-            <br/>
-            Docker를 활용한 환경 표준화를 통해 '내 컴퓨터에서는 되는데?'라는 문제를 방지하고, 개발부터 운영까지의 전체 생애주기를 책임지는 개발자를 지향합니다.
-          </p>
-
-          <div class="chips" aria-label="키워드">
-            <span class="chip" id="roleChip">Backend Developer</span>
-            <span class="chip">Spring Boot</span>
-            <span class="chip">Docker</span>
-            <span class="chip">JPA / MyBatis</span>
-            <span class="chip">MySQL</span>
-            <span class="chip">OAuth2 / JWT</span>
-            <span class="chip">WebSocket / STOMP</span>
-            <span class="chip">Git</span>
-            <span class="chip">CI/CD</span>
-          </div>
-
-          <div class="hero-cta">
-            <a class="btn btn-primary" href="#projects">프로젝트 보기</a>
-            <a class="btn" href="#contact">연락하기</a>
-            <button class="btn" id="copyEmail" type="button">이메일 복사</button>
-          </div>
-        </section>
-
-        <aside class="panel hero-side" aria-label="프로필 요약">
-          <div class="profile">
-            <div class="avatar" aria-label="프로필 이미지 자리">
-              <img src="https://kej-portfolio-files.s3.ap-northeast-2.amazonaws.com/%EC%82%AC%EC%A7%84/%EA%B9%80%EC%9D%98%EC%9E%AC_%EB%B0%98%EB%AA%85%ED%95%A8.jpg" alt="김의재">
-            </div>
-
-            <div class="profile-meta">
-              <div class="meta-row"><b>Name</b><span>김의재</span></div>
-              <div class="meta-row"><b>Address</b><span>서울시 송파구 송파동</span></div>
-              <div class="meta-row"><b>Email</b><span id="emailText">euijae0611@naver.com</span></div>
-              <div class="meta-row"><b>Phone</b><span>010-2926-4698</span></div>
-            </div>
-          </div>
-        </aside>
-      </div>
-
-      <!-- Stats -->
-      <div class="stats" aria-label="요약 지표">
-        <div class="stat">
-          <div class="num" data-count="500">0</div>
-          <div class="label">코딩한 일수</div>
-        </div>
-        <div class="stat">
-          <div class="num" data-count="5">0</div>
-          <div class="label">완료한 프로젝트</div>
-        </div>
-        <div class="stat">
-          <div class="num" data-count="100">0</div>
-          <div class="label">코딩과 함께한 커피의 수</div>
+  <main id="top">
+    <section class="hero">
+      <div class="hero-copy">
+        <p class="eyebrow">Java / Spring Boot Backend + AI Agent + DevOps Automation</p>
+        <h1>AI가 코드를 이해하고 생성하며, 검증과 배포까지 수행하는 개발 자동화 플랫폼을 설계했습니다.</h1>
+        <p class="hero-text">
+          Spring Boot 백엔드 개발 역량을 기반으로 요구사항 분석, 코드 검색, 코드 생성, 컴파일 검증,
+          Git/PR, CI/CD, Kubernetes 배포와 운영 상태 확인까지 이어지는 Agentic Software Engineering
+          Platform을 구현했습니다.
+        </p>
+        <div class="hero-actions">
+          <a class="button primary" href="#projects">프로젝트 보기</a>
+          <a class="button secondary" href="#skills">기술 스택</a>
         </div>
       </div>
-    </div>
+
+      <aside class="hero-panel" aria-label="핵심 성과">
+        <div class="metric">
+          <strong>7 → 1</strong>
+          <span>LLM 호출 최적화</span>
+        </div>
+        <div class="metric">
+          <strong>6 → 0</strong>
+          <span>RAG 호출 제거</span>
+        </div>
+        <div class="metric">
+          <strong>63%</strong>
+          <span>AI 사용 비용 절감</span>
+        </div>
+        <div class="metric">
+          <strong>40+</strong>
+          <span>Agent Use Case 설계</span>
+        </div>
+      </aside>
+    </section>
+
+    <section class="section intro-grid">
+      <article>
+        <h2>Developer Positioning</h2>
+        <p>
+          기존 백엔드 시스템을 이해하고 API를 개발하는 것을 넘어, AI Agent가 실제 Repository를 읽고
+          코드를 생성하며 Build 검증과 배포 Workflow까지 수행할 수 있는 플랫폼을 설계하고 구현했습니다.
+        </p>
+      </article>
+      <article>
+        <h2>Core Focus</h2>
+        <p>
+          Java 21, Spring Boot, LangGraph, Kafka, Redis, GitHub Actions, ArgoCD, Kubernetes, AKS를
+          연결해 개발과 운영 자동화가 하나의 흐름으로 동작하도록 구성했습니다.
+        </p>
+      </article>
+    </section>
+
+    <section id="projects" class="section">
+      <div class="section-heading">
+        <p class="eyebrow">Selected Work</p>
+        <h2>주요 프로젝트</h2>
+      </div>
+
+      <div class="project-grid">
+        <article class="project-card">
+          <span class="number">01</span>
+          <h3>AI 기반 Backend Code Generation Platform</h3>
+          <p>자연어 요구사항을 기반으로 기존 Spring Boot Source Code와 API 구조를 분석해 신규 API 코드를 자동 생성했습니다.</p>
+          <ul>
+            <li>Controller, Service, DTO, OpenFeign 구조 자동 탐색</li>
+            <li>OpenAPI / Swagger 기반 API 구조 분석</li>
+            <li>Request / Response 및 Nested DTO 추적</li>
+            <li>생성 코드 Compile Validation 및 Evidence 관리</li>
+          </ul>
+          <div class="tags"><span>Java 21</span><span>Spring Boot</span><span>LangGraph</span><span>OpenAPI</span></div>
+        </article>
+
+        <article class="project-card">
+          <span class="number">02</span>
+          <h3>LangGraph 기반 Multi-Agent Architecture</h3>
+          <p>Master Agent와 Worker Agent를 분리해 확장 가능한 비동기 Agent Platform을 설계했습니다.</p>
+          <ul>
+            <li>Kafka 기반 Agent Communication</li>
+            <li>correlationId 기반 요청 추적</li>
+            <li>Redis 기반 Context, Cache, Idempotency 처리</li>
+            <li>Retry, Failure Handling, Task Dispatcher 설계</li>
+          </ul>
+          <div class="tags"><span>LangGraph</span><span>Kafka</span><span>Redis</span><span>PostgreSQL</span></div>
+        </article>
+
+        <article class="project-card">
+          <span class="number">03</span>
+          <h3>AI Code Generation 성능 최적화</h3>
+          <p>반복적인 RAG 호출 구조를 Local Code Index 기반 검색과 Single LLM Generation 구조로 개선했습니다.</p>
+          <ul>
+            <li>LLM 호출 7회에서 1회로 감소</li>
+            <li>RAG 호출 6회 제거</li>
+            <li>Source 검색 약 20ms 달성</li>
+            <li>Multi-hop DTO Context 누락 문제 개선</li>
+          </ul>
+          <div class="tags"><span>RAG</span><span>Code Index</span><span>LLM</span><span>Optimization</span></div>
+        </article>
+
+        <article class="project-card">
+          <span class="number">04</span>
+          <h3>Compile Validation Pipeline</h3>
+          <p>LLM이 생성한 코드가 실제 Repository에서 Build 가능한지 자동 검증하는 파이프라인을 구현했습니다.</p>
+          <ul>
+            <li>Git Repository Clone 및 생성 코드 자동 반영</li>
+            <li>Maven Compile / Package 실행</li>
+            <li>Build 결과, Exit Code, Compile Error 수집</li>
+            <li>Validation 결과를 Master Agent에 전달</li>
+          </ul>
+          <div class="tags"><span>Maven</span><span>JGit</span><span>Validation</span><span>Retry</span></div>
+        </article>
+
+        <article class="project-card">
+          <span class="number">05</span>
+          <h3>GitHub / CI/CD / Kubernetes 자동화</h3>
+          <p>AI가 생성한 코드를 GitHub PR부터 Kubernetes 배포와 Health Check까지 연결했습니다.</p>
+          <ul>
+            <li>Branch, Commit, Pull Request 자동화</li>
+            <li>GitHub Actions와 Container Image Build 연계</li>
+            <li>ArgoCD Sync 및 Kubernetes Deployment 확인</li>
+            <li>Rollback, Release, 실패 단계 추적</li>
+          </ul>
+          <div class="tags"><span>GitHub Actions</span><span>Docker</span><span>ArgoCD</span><span>AKS</span></div>
+        </article>
+
+        <article class="project-card">
+          <span class="number">06</span>
+          <h3>Kubernetes Operations Agent</h3>
+          <p>자연어 요청으로 Kubernetes Deployment를 탐색하고 승인 기반 운영 작업을 수행하는 Agent를 개발했습니다.</p>
+          <ul>
+            <li>Namespace / Deployment 자동 탐색</li>
+            <li>Rollout Restart 실행 전 Preview 제공</li>
+            <li>Deployment, ReplicaSet, Pod 상태 검증</li>
+            <li>실패 원인과 실행 결과 반환</li>
+          </ul>
+          <div class="tags"><span>Kubernetes API</span><span>RBAC</span><span>AKS</span><span>HITL</span></div>
+        </article>
+      </div>
+    </section>
+
+    <section id="architecture" class="section architecture-section">
+      <div class="section-heading">
+        <p class="eyebrow">End-to-End Automation</p>
+        <h2>Software Development Lifecycle 자동화 흐름</h2>
+      </div>
+      <div class="flow" id="flow"></div>
+    </section>
+
+    <section class="section agents">
+      <div>
+        <p class="eyebrow">Agent Design</p>
+        <h2>AI 기반 DevOps / SRE Agent 설계</h2>
+        <p>
+          개발, 배포, 운영 영역을 나눠 Source Code 검색 Agent부터 Deployment Health Check Agent까지
+          약 40종 규모의 Agent Use Case와 Architecture를 설계했습니다.
+        </p>
+      </div>
+      <div class="agent-list" id="agentList"></div>
+    </section>
+
+    <section id="skills" class="section">
+      <div class="section-heading">
+        <p class="eyebrow">Technical Stack</p>
+        <h2>Core Skills</h2>
+      </div>
+      <div class="skills-grid" id="skillsGrid"></div>
+    </section>
+
+    <section id="troubleshooting" class="section troubleshooting">
+      <div class="section-heading">
+        <p class="eyebrow">Production Troubleshooting</p>
+        <h2>Kubernetes / CI-CD 장애 분석 경험</h2>
+      </div>
+      <div class="issue-grid" id="issueGrid"></div>
+    </section>
   </main>
 
-  <!-- About -->
-  <section id="about">
-    <div class="container">
-      <div class="section-head">
-        <div>
-          <h2 class="h2">About</h2>
-          <p class="desc">
-            <span>• 운영 중심의 사고: 로컬 개발 환경과 실제 운영 서버 간의 간극을 줄이기 위해 Docker 기반의 컨테이너 환경을 적극 활용합니다.</span>
-            <span>• 지속 가능한 코드: 기능을 빠르게 만드는 것보다, 서비스가 성장함에 따라 유연하게 대응할 수 있는 객체지향적 설계와 클린 코드를 중요하게 생각합니다.</span>
-            <span>• End-to-End 이해도: 백엔드 로직 설계부터 DB 모델링, 클라우드 환경에서의 배포 자동화까지 전체적인 서비스 흐름을 직접 구축하고 경험하는 데 열정을 가지고 있습니다.</span>
-          </p>
-        </div>
-      </div>
-
-      <div class="grid grid-2">
-        <div class="card">
-          <h3>일하는 방식</h3>
-          <p>
-            <b>구조적 설계:</b> 큰 문제를 해결하기 위해 작은 단위(Module)로 나누어 접근하며, 각 기능이 전체 시스템 안에서 명확한 역할과 책임을 갖도록 설계합니다.<br/><br/>
-            <b>문서화와 기록:</b> 트러블슈팅 과정과 기술적 의사결정의 근거를 기록하여 팀의 자산으로 남깁니다. 이는 협업 시 불필요한 커뮤니케이션 비용을 줄이는 핵심이라고 믿습니다.<br/><br/>
-            <b>환경의 표준화:</b> 팀원 누구나 동일한 환경에서 개발할 수 있도록 인프라를 코드화(IaC)하고 자동화하는 과정에 집중합니다.
-          </p>
-        </div>
-        <div class="card">
-          <h3>관심 분야</h3>
-          <p>
-            <b>Architecture:</b> 마이크로서비스 아키텍처(MSA)를 위한 백엔드 설계 및 성능 최적화.<br/><br/>
-            <b>Communication:</b> WebSocket 및 STOMP를 활용한 실시간 데이터 처리와 동기화 문제 해결.<br/><br/>
-            <b>DevOps:</b> Docker 기반 개발/배포 환경 표준화, EC2 배포·운영 경험, Kubernetes 기본 개념 및 사용 흐름 학습.<br/><br/>
-            <b>Security:</b> OAuth2와 JWT를 활용한 안전하고 효율적인 인증/인가 시스템 구현.
-          </p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Education -->
-  <section id="education">
-    <div class="container">
-      <div class="section-head">
-        <div>
-          <h2 class="h2">Education</h2>
-          <p class="desc">
-            <span>전공 수업을 통해 기초를 다졌으며, 프로젝트 경험을 쌓아가며 개발 역량을 키워왔습니다.</span>
-          </p>
-        </div>
-      </div>
-
-      <div class="timeline" aria-label="학력 타임라인">
-        <div class="t-item">
-          <div class="t-date">2025.08 - 2026.02</div>
-          <div class="t-title">클라우드 데브옵스 풀스택 자바(JAVA) 양성 과정</div>
-          <div class="t-org">중앙정보기술개발인재원</div>
-          <div class="t-notes">
-            • Back-end: Spring Boot 기반 REST API 설계 및 JPA/MyBatis를 활용한 데이터 영속성 관리.<br/>
-            • Database: MySQL 모델링 및 성능 최적화를 위한 인덱스 활용 경험.<br/>
-            • Infrastructure: Docker 컨테이너 기반 개발 환경 구축 및 클라우드 배포 프로세스 내재화.<br/>
-            • Collaboration: Git Flow 전략을 활용한 협업 및 코드 리뷰 중심의 팀 프로젝트 수행.
-          </div>
-        </div>
-
-        <div class="t-item">
-          <div class="t-date">2021 - 2024</div>
-          <div class="t-title">컴퓨터소프트웨어학과 (학사)</div>
-          <div class="t-org">동서울대학교</div>
-          <div class="t-notes">
-            • 전공 심화 과정을 통해 자료구조, 알고리즘, 운영체제 등 CS 지식의 실무 적용 능력 함양.<br/>
-            • 학사 학위 프로젝트를 통해 웹 서비스 전체 프로세스(기획-설계-구현) 리딩.
-          </div>
-        </div>
-
-        <div class="t-item">
-          <div class="t-date">2018 - 2021</div>
-          <div class="t-title">컴퓨터정보과 (전문학사)</div>
-          <div class="t-org">용인송담대학교</div>
-          <div class="t-notes">
-            • 컴퓨터 공학의 기초를 다지며 팀 프로젝트를 통한 협업의 기본 원칙 습득.
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Skills -->
-  <section id="skills">
-    <div class="container">
-      <div class="section-head">
-        <div>
-          <h2 class="h2">Skills</h2>
-          <p class="desc">프로젝트에서 실제로 사용해본 기술을 기준으로 정리했습니다.</p>
-        </div>
-      </div>
-
-      <div class="grid grid-2">
-        <div class="card" aria-label="주요 스킬">
-          <h3>Core</h3>
-
-          <div class="skill" data-skill="90">
-            <b>Java</b>
-            <div class="bar"><i></i></div>
-            <div class="pct">90%</div>
-          </div>
-
-          <div class="skill" data-skill="90">
-            <b>JavaScript</b>
-            <div class="bar"><i></i></div>
-            <div class="pct">90%</div>
-          </div>
-
-
-          <div class="skill" data-skill="100">
-            <b>HTML</b>
-            <div class="bar"><i></i></div>
-            <div class="pct">100%</div>
-          </div>
-
-          <div class="skill" data-skill="90">
-            <b>SQL</b>
-            <div class="bar"><i></i></div>
-            <div class="pct">90%</div>
-          </div>
-
-        </div>
-
-        <div class="card" aria-label="툴/프레임워크 스킬">
-          <h3>Tools & Framework</h3>
-
-          <div class="skill" data-skill="90">
-            <b>Spring Boot</b>
-            <div class="bar"><i></i></div>
-            <div class="pct">90%</div>
-          </div>
-
-          <div class="skill" data-skill="86">
-            <b>Spring Security / OAuth2 / JWT</b>
-            <div class="bar"><i></i></div>
-            <div class="pct">86%</div>
-          </div>
-
-          <div class="skill" data-skill="84">
-            <b>JPA / MyBatis</b>
-            <div class="bar"><i></i></div>
-            <div class="pct">84%</div>
-          </div>
-
-          <div class="skill" data-skill="75">
-            <b>MySQL</b>
-            <div class="bar"><i></i></div>
-            <div class="pct">75%</div>
-          </div>
-
-
-          <div class="skill" data-skill="80">
-            <b>React</b>
-            <div class="bar"><i></i></div>
-            <div class="pct">80%</div>
-          </div>
-
-          <div class="skill" data-skill="84">
-            <b>WebSocket / STOMP</b>
-            <div class="bar"><i></i></div>
-            <div class="pct">84%</div>
-          </div>
-
-          <div class="skill" data-skill="70">
-            <b>Docker / Docker Compose</b>
-            <div class="bar"><i></i></div>
-            <div class="pct">70%</div>
-          </div>
-
-          <div class="skill" data-skill="82">
-            <b>AWS EC2 / RDS / S3</b>
-            <div class="bar"><i></i></div>
-            <div class="pct">82%</div>
-          </div>
-
-
-          <div class="skill" data-skill="85">
-            <b>Linux / Nginx</b>
-            <div class="bar"><i></i></div>
-            <div class="pct">85%</div>
-          </div>
-
-
-          <div class="skill" data-skill="30">
-            <b>Kubernetes</b>
-            <div class="bar"><i></i></div>
-            <div class="pct">30%</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Projects -->
-  <section id="projects">
-    <div class="container">
-      <div class="section-head">
-        <div>
-          <h2 class="h2">Projects</h2>
-          <p class="desc">
-            완료한 프로젝트를 기간, 역할, 기술 스택 중심으로 정리했습니다.
-            각 카드의 “자세히” 버튼을 통해 상세 내용을 확인할 수 있습니다.
-          </p>
-        </div>
-
-        <div class="filters" aria-label="프로젝트 필터">
-          <button class="pill active" data-filter="all" type="button">전체</button>
-          <button class="pill" data-filter="team" type="button">팀</button>
-          <button class="pill" data-filter="solo" type="button">개인</button>
-          <button class="pill" data-filter="android" type="button">Android</button>
-          <button class="pill" data-filter="web" type="button">Web</button>
-        </div>
-      </div>
-
-      <div class="grid grid-2" id="projectGrid">
-        <!-- Project 1 -->
-        <article class="project" data-kind="team android">
-          <div class="project-top">
-            <h3>전기차 충전소 어플 개발</h3>
-            <span class="tag">2020.03-2020.12 (10개월)</span>
-          </div>
-          <div class="meta">
-            <b>구분</b>: 대학 캡스톤 디자인 팀프로젝트<br/>
-            <b>주요 기능</b>: 회원 관리 및 SNS 로그인, 전기차 충전소 위치 표시, 충전 가능 여부 및 시간 표시
-          </div>
-          <div class="project-bottom">
-            <div class="stack" aria-label="기술 스택">
-              <span class="mini">Android Studio</span>
-              <span class="mini">MySQL</span>
-              <span class="mini">Firebase</span>
-              <span class="mini">공공데이터 API</span>
-            </div>
-            <div class="links">
-              <a class="link" href="https://github.com/EatingIting/BestEV" target="_blank" rel="noopener">Github</a>
-              <button class="link" href="#" target="_blank" rel="noopener" data-shot="p1">스크린샷</button>
-              <button class="link" type="button" data-open="p1">자세히</button>
-            </div>
-          </div>
-        </article>
-
-        <!-- Project 2 -->
-        <article class="project" data-kind="solo web">
-          <div class="project-top">
-            <h3>웹 쇼핑몰 홈페이지 개발</h3>
-            <span class="tag">2023.11-2024.04 (5개월)</span>
-          </div>
-          <div class="meta">
-            <b>구분</b>: 개인 프로젝트<br/>
-            <b>주요 기능</b>: 회원가입 및 로그인, 장바구니
-          </div>
-          <div class="project-bottom">
-            <div class="stack">
-              <span class="mini">Spring Boot</span>
-              <span class="mini">JPA</span>
-              <span class="mini">MySQL</span>
-              <span class="mini">JavaScript</span>
-            </div>
-            <div class="links">
-              <a class="link" href="https://github.com/euijae0611/board" target="_blank" rel="noopener">Github</a>
-              <button class="link" href="#" target="_blank" rel="noopener" data-shot="p2">스크린샷</button>
-              <button class="link" type="button" data-open="p2">자세히</button>
-            </div>
-          </div>
-        </article>
-
-        <!-- Project 3 -->
-        <article class="project" data-kind="team web">
-          <div class="project-top">
-            <h3>JAVA Bean 카페</h3>
-            <span class="tag">2025.11 ~ 2025.12 (3주)</span>
-          </div>
-          <div class="meta">
-            <b>구분</b>: 팀 프로젝트<br/>
-            <b>주요 기능</b>: Spring Security 회원가입 및 로그인, 관리자 페이지 SSE 이벤트, 모바일 환경 대응
-          </div>
-          <div class="project-bottom">
-            <div class="stack">
-              <span class="mini">Spring Boot</span>
-              <span class="mini">MyBatis</span>
-              <span class="mini">MySQL</span>
-              <span class="mini">JavaScript</span>
-            </div>
-            <div class="links">
-              <a class="link" href="https://github.com/EatingIting/pjt-01-Cafe" target="_blank" rel="noopener">Github</a>
-              <button class="link" href="#" target="_blank" rel="noopener" data-shot="p3">스크린샷</button>
-              <button class="link" type="button" data-open="p3">자세히</button>
-            </div>
-          </div>
-        </article>
-
-        <!-- Project 4 -->
-        <article class="project" data-kind="team web">
-          <div class="project-top">
-            <h3>Draw it!</h3>
-            <span class="tag">2025.12 ~ 2025.12 (2주)</span>
-          </div>
-          <div class="meta">
-            <b>구분</b>: 팀 프로젝트<br/>
-            <b>주요 기능</b>: STOMP 기반 실시간 그림, 채팅 연동, 시간 동기화, 끝말잇기 모드
-          </div>
-          <div class="project-bottom">
-            <div class="stack">
-              <span class="mini">Spring Boot</span>
-              <span class="mini">JPA</span>
-              <span class="mini">MySQL</span>
-              <span class="mini">React</span>
-              <span class="mini">WebSocket / STOMP</span>
-              <span class="mini">SockJS</span>
-              <span class="mini">AWS EC2</span>
-            </div>
-            <div class="links">
-              <a class="link" href="https://github.com/EatingIting/DRAW-IT" target="_blank" rel="noopener">Github</a>
-              <button class="link" href="#" target="_blank" rel="noopener" data-shot="p4">스크린샷</button>
-              <button class="link" type="button" data-open="p4">자세히</button>
-              <a class="link" href="https://drawit.online" target="_blank" rel="noopener">Link</a>
-
-            </div>
-          </div>
-        </article>
-
-        <!-- Project 5 -->
-        <article class="project" data-kind="team web">
-          <div class="project-top">
-            <h3>ONSIL</h3>
-            <span class="tag">2026.01 ~ 2026.02 (2주)</span>
-          </div>
-          <div class="meta">
-            <b>구분</b>: 팀 프로젝트<br/>
-            <b>주요 기능</b>: 자격증 학습 기록 및 목표 기반 진도 관리
-          </div>
-          <div class="project-bottom">
-            <div class="stack">
-              <span class="mini">Spring Boot</span>
-              <span class="mini">React</span>
-              <span class="mini">MyBatis / JPA</span>
-              <span class="mini">AWS RDS (MySQL)</span>
-              <span class="mini">AWS S3</span>
-              <span class="mini">AWS EC2</span>
-              <span class="mini">WebSocket</span>
-              <span class="mini">Mediasoup (SFU)</span>
-            </div>
-            <div class="links">
-              <a class="link" href="https://github.com/EatingIting/Certificate_Study" target="_blank" rel="noopener">Github</a>
-              <button class="link" type="button" data-shot="p5">스크린샷</button>
-              <button class="link" type="button" data-open="p5">자세히</button>
-              <a class="link" href="https://onsil.study" target="_blank" rel="noopener">Link</a>
-            </div>
-          </div>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <!-- Side Projects -->
-  <!-- <section id="side">
-    <div class="container">
-      <div class="section-head">
-        <div>
-          <h2 class="h2">Side Projects</h2>
-          <p class="desc">꾸준히 사이드 프로젝트를 진행하며, 다양한 분야의 기술 스택을 경험했다.</p>
-        </div>
-      </div>
-
-      <div class="side-wrap">
-        <div class="side">
-          <div class="thumb">썸네일 영역 (images/baseball.png)</div>
-          <h3>C# 야구게임 개발</h3>
-          <p>Windows Form부터 백엔드 개발까지 혼자 구현해보았다.</p>
-          <div class="links">
-            <a class="link" href="#" target="_blank" rel="noopener">Link</a>
-          </div>
-        </div>
-
-        <div class="side">
-          <div class="thumb">썸네일 영역 (images/diary.png)</div>
-          <h3>일기장 어플 개발</h3>
-          <p>UI/UX부터 기능 개발까지 전부 혼자 개발해보았다.</p>
-          <div class="links">
-            <a class="link" href="https://github.com/EatingIting/Diary" target="_blank" rel="noopener">Github</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section> -->
-
-  <!-- Hire -->
-  <section aria-label="메시지">
-    <div class="container">
-      <div class="card" style="display:flex; justify-content:space-between; gap:12px; align-items:center; flex-wrap:wrap;">
-        <div>
-          <h3 style="margin:0 0 6px; font-size:18px; font-weight:900;">함께할 회사를 찾고 있습니다.</h3>
-          <p style="margin:0; color:var(--muted); line-height:1.7;">회사와 함께 성장하는 개발자가 되겠습니다.</p>
-        </div>
-        <a class="btn btn-primary" href="tel:+821029264698">전화하기</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- Contact -->
-  <section id="contact">
-    <div class="container">
-      <div class="section-head">
-        <div>
-          <h2 class="h2">Contact</h2>
-          <p class="desc">연락을 기다리고 있습니다!</p>
-        </div>
-      </div>
-
-      <div class="contact-grid">
-        <div class="contact-card">
-          <h3>Contact Me</h3>
-          <p class="desc">문의 주시면 빠르게 회신드리겠습니다!</p>
-          <div class="kv">
-            <div class="row"><b>Address</b><span>서울시 송파구 송파2동</span></div>
-            <div class="row"><b>Phone</b><span><a href="tel:+821029264698">010 2926 4698</a></span></div>
-            <div class="row"><b>Email</b><span><a href="mailto:euijae0611@naver.com">euijae0611@naver.com</a></span></div>
-            <div class="row"><b>Github</b><span><a href="https://github.com/EatingIting" target="_blank" rel="noopener">EatingIting</a></span></div>
-          </div>
-        </div>
-
-        <div class="contact-card">
-          <h3>메모</h3>
-          <p class="desc">
-            이 페이지는 외부 라이브러리 없이 HTML, CSS, JavaScript만으로 구성했습니다.<br/>
-            모바일과 데스크톱 환경 모두에서 자연스럽게 보이도록
-            반응형으로 설계했습니다.
-          </p>
-          <div style="margin-top:130px; display:flex; gap:10px; flex-wrap:wrap;">
-            <button class="btn" type="button" id="copyPhone">전화번호 복사</button>
-            <button class="btn" type="button" id="copyGithub">Github 복사</button>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Footer -->
   <footer>
-    <div class="container">
-      <div class="foot">
-        <div class="small">© <span id="year"></span> KimEuijae. All rights reserved.</div>
-        <div class="small">Built with HTML / CSS / JS</div>
-      </div>
-    </div>
+    <strong>Backend & AI Agent Engineer</strong>
+    <span>Java / Spring Boot 기반의 Agentic Software Engineering Platform 구현 경험</span>
   </footer>
 
-  <!-- Modal -->
-  <div class="modal" id="modal" aria-hidden="true" role="dialog" aria-modal="true">
-    <div class="modal-box">
-      <div class="modal-head">
-        <h3 id="modalTitle">Project</h3>
-        <button class="x" id="modalClose" type="button" aria-label="닫기">✕</button>
-      </div>
-      <div class="modal-body" id="modalBody"></div>
-    </div>
-  </div>
-
-  <!-- 햄버거 메뉴 -->
-  <nav class="mobile-nav" id="mobileNav">
-    <a href="#home">Home</a>
-    <a href="#about">About</a>
-    <a href="#education">Education</a>
-    <a href="#skills">Skills</a>
-    <a href="#projects">Projects</a>
-    <a href="#contact">Contact</a>
-  </nav>
+  <script src="index.js"></script>
 </body>
-<script src="index.js"></script>
 </html>

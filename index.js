@@ -1,52 +1,58 @@
 const flowSteps = [
   "요구사항 분석",
-  "Source Code 검색",
-  "API / DTO Context 구성",
-  "LLM Code Generation",
-  "Compile Validation",
-  "Git Branch / Commit / PR",
-  "CI/CD & Image Build",
-  "ArgoCD / Kubernetes Deploy",
+  "API 개발",
+  "코드 검증",
+  "Git / Pull Request",
+  "GitHub Actions",
+  "Build / Package",
+  "Container Image",
+  "Registry Push",
+  "ArgoCD 배포",
+  "Kubernetes",
   "Pod Health Check",
-  "Failure Tracking / Rollback",
-  "운영 결과 반환",
-  "Evidence 관리"
+  "운영 상태 확인"
 ];
 
 const agentUseCases = [
-  "Source Code 검색 Agent",
-  "API 검색 Agent",
-  "DTO 분석 Agent",
+  "API Search Agent",
+  "Source Code Analysis Agent",
+  "DTO Analysis Agent",
   "Code Generation Agent",
   "Compile Validation Agent",
   "Git / Pull Request Agent",
   "CI/CD Agent",
-  "Kubernetes Deployment Agent",
+  "Deployment Agent",
+  "Kubernetes Operations Agent",
   "Rollout Restart Agent",
-  "Transaction Error Analysis Agent",
   "Log Analysis Agent",
-  "Deployment Health Check Agent"
+  "Transaction Error Analysis Agent",
+  "Health Check Agent"
 ];
 
 const skillGroups = {
-  Backend: ["Java 21", "Spring Boot", "REST API", "OpenFeign", "Maven", "OpenAPI / Swagger", "JGit"],
-  "AI / Agent": ["LLM Application", "LangGraph", "Multi-Agent Architecture", "Agent Orchestration", "RAG", "Prompt Engineering", "Context / Evidence Management", "Human-in-the-Loop"],
-  Architecture: ["Event Driven Architecture", "Async Processing", "Kafka", "Redis", "PostgreSQL", "Idempotency", "Workflow Orchestration"],
-  "DevOps / Cloud": ["GitHub", "GitHub Actions", "Docker", "ArgoCD", "Kubernetes", "Azure AKS", "Azure Container Registry", "RBAC", "CI/CD"]
+  Backend: ["Java 21", "Spring Boot", "Spring Cloud", "OpenFeign", "REST API", "Swagger / OpenAPI", "Maven", "JGit"],
+  "Database / Messaging": ["PostgreSQL", "Redis", "Kafka"],
+  DevOps: ["Git", "GitHub", "GitHub Actions", "Docker", "ArgoCD", "CI/CD"],
+  "Cloud / Kubernetes": ["Azure", "AKS", "ACR", "Kubernetes", "ServiceAccount", "RBAC"],
+  "AI / Agent": ["LLM Application", "LangGraph", "RAG", "Multi-Agent Architecture", "Agent Orchestration", "Prompt Engineering", "Code Generation", "Human-in-the-Loop", "Context / Evidence Management"]
 };
 
 const issues = [
-  "Kubernetes RBAC / ServiceAccount 권한 오류",
-  "Deployment / Pod CrashLoopBackOff",
+  "CrashLoopBackOff",
   "ImagePullBackOff",
-  "Container Registry 인증 문제",
-  "Java Agent Loading Failure",
+  "Container Image Pull 실패",
+  "Kubernetes 403 Forbidden",
+  "ServiceAccount 권한 오류",
   "Spring Boot Startup Failure",
-  "Maven Dependency Resolution 오류",
+  "Java Agent Loading Failure",
+  "ArgoCD Sync 오류",
   "GitHub Actions 인증 오류",
-  "Azure OIDC / Federated Identity 오류",
-  "ArgoCD Deployment / Sync 오류",
-  "Pod / Event / Log 기반 장애 분석"
+  "Azure OIDC 인증 오류",
+  "Federated Identity 설정 오류",
+  "Container Registry 인증 오류",
+  "GitHub SAML / Permission 오류",
+  "Maven Repository Dependency Resolution 오류",
+  "ArgoCD Deployment 실패 분석"
 ];
 
 const flow = document.querySelector("#flow");
